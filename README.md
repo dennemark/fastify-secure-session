@@ -57,7 +57,10 @@ fastify.register(require('@fastify/secure-session'), {
   // and based on value within the session.
   expiry: 24 * 60 * 60, // Default 1 day
   cookie: {
-    path: '/'
+    path: '/',
+    // the amount of time the cookie should persist on the client
+    // if not set, the cookie might be deleted on browser restarts
+    maxAge: 24 * 60 * 60, // 1 day in seconds
     // options for setCookie, see https://github.com/fastify/fastify-cookie
   }
 })
